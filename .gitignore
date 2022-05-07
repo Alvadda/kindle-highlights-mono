@@ -1,3 +1,8 @@
 server/node_modules
 server/dist
+
+parser/node_modules
+parser/.env
+parser/resources
+
 dev.db
