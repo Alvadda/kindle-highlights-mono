@@ -5,4 +5,8 @@ parser/node_modules
 parser/.env
 parser/resources
 
+app/node_modules
+app/.expo
+app/.env
+
 dev.db
