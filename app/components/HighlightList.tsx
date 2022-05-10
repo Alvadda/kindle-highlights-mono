@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Theme from '../theme'
 
 interface Props {
@@ -10,9 +11,9 @@ export default function HighlightList({ highligts }: Props) {
   return (
     <ScrollView contentContainerStyle={styles.contentContainer} style={styles.list}>
       {highligts.map((highlight) => (
-        <View style={styles.hightlight}>
+        <TouchableOpacity style={styles.hightlight} onPress={() => alert(highlight)}>
           <Text numberOfLines={3}>{highlight}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   )
