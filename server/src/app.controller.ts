@@ -1,5 +1,5 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Query } from '@nestjs/common'
+import { AppService } from './app.service'
 
 @Controller()
 export class AppController {
@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   async getRndHighlights(@Query() query) {
-    const numberOfHighlights = query.noh as number | undefined;
-    return await this.appService.getRndHighlights(numberOfHighlights);
+    const numberOfHighlights = query.noh as number | undefined
+    return await this.appService.getRndHighlights(numberOfHighlights)
   }
 }

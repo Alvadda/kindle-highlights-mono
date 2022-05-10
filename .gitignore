@@ -10,3 +10,7 @@ app/.expo
 app/.env
 
 dev.db
+parser/.DS_Store
+parser/prisma/.DS_Store
+server/.DS_Store
+.DS_Store
