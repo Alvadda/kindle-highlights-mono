@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id        Int         @id @default(autoincrement())
+  title     String      @unique
+  highlight Highlight[]
+}
+
+model Highlight {
+  id     Int     @id @default(autoincrement())
+  page   Int?
+  text   String
+  bookId Int
+  hash   String?
+  book   Book    @relation(fields: [bookId], references: [id])
+}

@@ -1,6 +1,9 @@
 server/node_modules
 server/dist
 
+express/node_modules
+express/dist
+
 parser/node_modules
 parser/.env
 parser/resources
