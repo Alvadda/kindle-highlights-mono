@@ -1,8 +1,9 @@
-import { Router } from "express";
-import { getRndHighlights } from "../controller/highlights.controller";
+import { Router } from 'express'
+import { getRndHighlights, search } from '../controller/highlights.controller'
 
-const router = Router();
+const router = Router()
 
-router.get("/", getRndHighlights);
+router.get('/', getRndHighlights)
+router.get('/search', search)
 
-export default router;
+export default router
