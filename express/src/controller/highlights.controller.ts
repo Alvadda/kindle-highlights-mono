@@ -21,13 +21,27 @@ export async function getRndHighlights(req: Request, res: Response) {
   res.json(rndHighlights)
 }
 
+export async function getHighligtsToBook(req: Request, res: Response) {
+  const { bookId } = req.query
+
+  if (typeof bookId !== 'string' || !isNumber(bookId)) return res.sendStatus(400)
+
+  const higlights = await prisma.highlight.findMany({
+    where: {
+      bookId: Number(bookId),
+    },
+    select: { book: true, page: true, text: true },
+  })
+
+  res.json(higlights)
+}
+
 export async function search(req: Request, res: Response) {
   const { filter } = req.query
 
   if (typeof filter !== 'string') return res.sendStatus(400)
 
   const highlights = await getHighlights()
-
   const searchResult = highlights.filter((highlight) => highlight.text.includes(filter))
 
   res.json(searchResult)
