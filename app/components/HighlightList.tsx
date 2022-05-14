@@ -3,15 +3,15 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Theme from '../theme'
 
 interface Props {
-  // onSelect(): void
+  onSelect(value: string): void
   highligts: string[]
 }
 
-export default function HighlightList({ highligts }: Props) {
+export default function HighlightList({ highligts, onSelect }: Props) {
   return (
     <ScrollView contentContainerStyle={styles.contentContainer} style={styles.list}>
       {highligts.map((highlight) => (
-        <TouchableOpacity style={styles.hightlight} onPress={() => alert(highlight)}>
+        <TouchableOpacity key={highlight} style={styles.hightlight} onPress={() => onSelect(highlight)}>
           <Text numberOfLines={3}>{highlight}</Text>
         </TouchableOpacity>
       ))}

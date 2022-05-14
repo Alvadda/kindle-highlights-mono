@@ -1,14 +1,14 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: 'http://localhost:1337/',
   timeout: 1000,
 })
 
 export const getHighlights = async (numberOfHighlights = 5): Promise<string[]> => {
-  const response = await instance.get('', {
+  const response = await instance.get('highlights', {
     params: {
-      noh: numberOfHighlights,
+      numberOfHighlights: numberOfHighlights,
     },
   })
   const data = response.data
