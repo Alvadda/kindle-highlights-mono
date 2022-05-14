@@ -28,11 +28,16 @@ export default function App() {
       </View>
       <View style={styles.content}>
         <HighlightList highligts={highlights} onSelect={setSelectedHighlight} />
+        {/* TODO Modal as own componenent */}
         <Modal transparent visible={Boolean(selectedHighlight)} animationType="fade">
           <View style={stylesModal.center}>
             <View style={stylesModal.modalView}>
-              <TouchebleIcon onTouch={() => setSelectedHighlight('')} icon={<AntDesign name="close" size={32} color="black" />} />
-              <Text>{selectedHighlight}</Text>
+              <TouchebleIcon
+                style={stylesModal.close}
+                onTouch={() => setSelectedHighlight('')}
+                icon={<AntDesign name="close" size={32} color="black" />}
+              />
+              <Text style={stylesModal.text}>{selectedHighlight}</Text>
             </View>
           </View>
         </Modal>
@@ -75,6 +80,7 @@ const styles = StyleSheet.create({
   },
 })
 
+// TODO Modal style in Modal componenent
 const stylesModal = StyleSheet.create({
   center: {
     flex: 1,
@@ -89,5 +95,13 @@ const stylesModal = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5,
     padding: 20,
+  },
+  close: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+  },
+  text: {
+    fontSize: 16,
   },
 })
