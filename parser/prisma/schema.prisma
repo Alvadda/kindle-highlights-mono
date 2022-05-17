@@ -25,3 +25,11 @@ model Book {
   title       String      @unique
   highlight   Highlight[]
 }
+
+model Apikey {
+  id          String      @id @default(uuid())
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  admin       Boolean     
+  activ       Boolean?     @default(true)
+}

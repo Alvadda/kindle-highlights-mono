@@ -21,3 +21,11 @@ model Highlight {
   hash   String?
   book   Book    @relation(fields: [bookId], references: [id])
 }
+
+model Apikey {
+  id        String   @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  admin     Boolean
+  activ     Boolean? @default(true)
+}
