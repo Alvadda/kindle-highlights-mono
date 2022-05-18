@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
-import { prisma } from '../utils/db'
 
-const API_KEY_HEADER = 'api-key'
+import { API_KEY_HEADER } from '../utils/constants'
+import { prisma } from '../utils/db'
 
 export default async function (req: Request, res: Response, next: NextFunction) {
   const apiKey = req.headers[API_KEY_HEADER]

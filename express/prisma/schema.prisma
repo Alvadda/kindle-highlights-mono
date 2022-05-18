@@ -23,9 +23,9 @@ model Highlight {
 }
 
 model Apikey {
-  id        String   @id
+  id          String @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   admin     Boolean
   activ     Boolean? @default(true)
 }
