@@ -1,9 +1,11 @@
 import { Router } from 'express'
 
-import { createApiKey } from '../controller/auth.controller'
+import { create, remove } from '../controller/auth.controller'
+import { isAdmin } from '../middleware/apikey.middleware'
 
 const router = Router()
 
-router.post('/', createApiKey)
+router.post('/', isAdmin, create)
+router.delete('/', isAdmin, remove)
 
 export default router
